@@ -1,0 +1,15 @@
+.tabs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tab-item{
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.active{
+    border-bottom: 2px solid green;
+}
+.pane-item{
+    display: none;
+}
