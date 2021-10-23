@@ -4,6 +4,11 @@ import NavBars from './components/nav-bar/NavBars'
 import './App.css';
 import SlideShow from './components/slide-show/SlideShow';
 import ClassComponent from './components/class-component/ClassComponent';
+import Routes from './routes'
+
+import Step1 from "./components/step/Step1";
+import Step2 from "./components/step/Step2";
+import Step3 from "./components/step/Step3";
 
 
 const Button = ({ children, ...rest }) => {
@@ -12,7 +17,13 @@ const Button = ({ children, ...rest }) => {
 function App() {
   const [imageIsExist, setImageIsExist] = useState(false);
   const [point, setPoint] = useState(0);
-  const [number, setNumber] = useState(30)
+  const [number, setNumber] = useState(30);
+  const [step, setStep] = useState(1);
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhoneNumber] = useState(null);
+
   useEffect(() => {
     fetch('https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAPmg07.img?h=532&w=799&m=6&q=60&o=f&l=f&x=260&y=260', {
       method: "GET"
@@ -40,6 +51,12 @@ function App() {
   }, [number])
   const handleClick = () => {
     alert("hello")
+  }
+  const onNextStep = () => {
+    setStep(step + 1)
+  };
+  const onPrevStep = () => {
+    setStep(step - 1)
   }
   const handleChangeInput = (e) => {
     const regex = /[0-9]{9,12}$/
@@ -343,15 +360,15 @@ function App() {
     ]
   },
   ]
-  let pb100=[]
-  const getPb100=(lists)=>{
-    if(lists.value===100) pb100.push(lists.id)
-    lists.child.forEach((x, i)=>{
-      if(x.child){
-        if(x.value===100){
+  let pb100 = []
+  const getPb100 = (lists) => {
+    if (lists.value === 100) pb100.push(lists.id)
+    lists.child.forEach((x, i) => {
+      if (x.child) {
+        if (x.value === 100) {
           pb100.push(x.id)
-          const a=lists.child.find(x=>x.value!==100);
-          if(!a){
+          const a = lists.child.find(x => x.value !== 100);
+          if (!a) {
             pb100.push(lists.id)
           }
           getPb100(x)
@@ -360,28 +377,46 @@ function App() {
       }
     })
   }
-  pb.forEach(x=>getPb100(x));
-  const new100=[...new Set(pb100)].sort()
+  pb.forEach(x => getPb100(x));
+  const new100 = [...new Set(pb100)].sort()
   console.log("pb100====>", pb100, "===>", new100)
   //update pb100;
-  const updatepb100=(lists100, listPb)=>{
-    const newArr100=(Array.isArray(listPb) ?listPb:listPb.child).map((y,j)=>{
-      lists100.forEach((x,i)=>{
-        if(y.id===x && y.value!==100) {
+  const updatepb100 = (lists100, listPb) => {
+    const newArr100 = (Array.isArray(listPb) ? listPb : listPb.child).map((y, j) => {
+      lists100.forEach((x, i) => {
+        if (y.id === x && y.value !== 100) {
           console.log("xxx", x)
-          y.value=100;
+          y.value = 100;
         }
-        else updatepb100(lists100,y)
+        else updatepb100(lists100, y)
       })
       return y
     })
     return newArr100;
   }
-  console.log("updatepb100:",updatepb100(new100, pb))
+  console.log("updatepb100:", updatepb100(new100, pb));
+
+  const Step = () => {
+    switch (step) {
+      case 1:
+        return <Step1 onNextStep={onNextStep} onPrevStep={onPrevStep} setName={setName} setEmail={setEmail} 
+        setPhoneNumber={setPhoneNumber} name={name} email={email} phone={phone}/>
+      case 2:
+        return <Step2 onNextStep={onNextStep} onPrevStep={onPrevStep} />
+      case 3:
+        return <Step3 onNextStep={onNextStep} onPrevStep={onPrevStep} />
+      default:
+        return <Step1 onNextStep={onNextStep} onPrevStep={onPrevStep} setName={setName} setEmail={setEmail} 
+        setPhoneNumber={setPhoneNumber} name={name} email={email} phone={phone}/>
+    }
+  }
   return (
     <div className="App">
       <NavBars />
-      <SlideShow />
+      {/* <SlideShow /> */}
+
+      {/* <Routes onNextStep={onNextStep} onPrevStep={onPrevStep}/> */}
+      {Step()}
       <Button onClick={handleClick} style={{ color: "green" }}>Hello</Button>
       <h3>{imageIsExist === true ? "Image" : "Khong co anh"}</h3>
       {number === 0 ? <h1>HET GIO</h1> : <h1>{number}</h1>}
