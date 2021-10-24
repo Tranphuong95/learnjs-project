@@ -40,15 +40,15 @@ function App() {
     }
   }
   delete student.class;
-  useEffect(() => {
-    const coundown = setTimeout(() => {
-      setNumber((number) => --number)
-    }, [1000]);
-    if (number <= 0) clearTimeout(coundown)
-    return () => {
-      clearTimeout(coundown)
-    }
-  }, [number])
+  // useEffect(() => {
+  //   const coundown = setTimeout(() => {
+  //     setNumber((number) => --number)
+  //   }, [1000]);
+  //   if (number <= 0) clearTimeout(coundown)
+  //   return () => {
+  //     clearTimeout(coundown)
+  //   }
+  // }, [number])
   const handleClick = () => {
     alert("hello")
   }
@@ -415,15 +415,15 @@ function App() {
       <NavBars />
       {/* <SlideShow /> */}
 
-      {/* <Routes onNextStep={onNextStep} onPrevStep={onPrevStep}/> */}
-      {Step()}
-      <Button onClick={handleClick} style={{ color: "green" }}>Hello</Button>
+      <Routes onNextStep={onNextStep} onPrevStep={onPrevStep}/>
+      {/* {Step()} */}
+      {/* <Button onClick={handleClick} style={{ color: "green" }}>Hello</Button>
       <h3>{imageIsExist === true ? "Image" : "Khong co anh"}</h3>
       {number === 0 ? <h1>HET GIO</h1> : <h1>{number}</h1>}
       <input type="number" name="point" value={point} onChange={handleChangeInput} />
-      {/* <button onClick={()=>getMoney(point)}>Tinh tien</button> */}
+      <button onClick={()=>getMoney(point)}>Tinh tien</button>
       <h3>Thanh tien: {getMoney(point)}</h3>
-      <ClassComponent />
+      <ClassComponent /> */}
     </div>
   );
 }
