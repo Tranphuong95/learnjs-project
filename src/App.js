@@ -395,27 +395,122 @@ function App() {
     return newArr100;
   }
   console.log("updatepb100:", updatepb100(new100, pb));
+  //update phan tu cua mang
+  const paidKeys = ["paid1", "paid2", "paid3", "paid4"]; //so phan tu o 2 mang phai bang nhau
+  const prevKeys = ["prev1", "prev2", "prev3", "prev4"];
+  const fees = [
+    {
+      paid1: 3, paid2: 0, paid3: 1, paid4: 2, id: 1, prev1: 1000, prev2: 1250, prev3: 2000, prev4: 1800
+    },
+    {
+      paid1: 4, paid2: 0, paid3: 3, paid4: 2, id: 2, prev1: 1200, prev2: 1350, prev3: 1800, prev4: 1920
+    },
+    {
+      paid1: 2, paid2: 0, paid3: 0, paid4: 2, id: 3, prev1: 1100, prev2: 120, prev3: 1700, prev4: 1900
+    },
+  ];
+  let newFees = [];
+  newFees = fees.map((item, index) => {
+    let newItems = { ...item };
+    paidKeys.map((x, i) => {
+      newItems[x] = item[prevKeys[i]];
+      return
+    })
+    return newItems
+  })
+  console.log("newFees:", newFees)
 
   const Step = () => {
     switch (step) {
       case 1:
-        return <Step1 onNextStep={onNextStep} onPrevStep={onPrevStep} setName={setName} setEmail={setEmail} 
-        setPhoneNumber={setPhoneNumber} name={name} email={email} phone={phone}/>
+        return <Step1 onNextStep={onNextStep} onPrevStep={onPrevStep} setName={setName} setEmail={setEmail}
+          setPhoneNumber={setPhoneNumber} name={name} email={email} phone={phone} />
       case 2:
         return <Step2 onNextStep={onNextStep} onPrevStep={onPrevStep} />
       case 3:
         return <Step3 onNextStep={onNextStep} onPrevStep={onPrevStep} />
       default:
-        return <Step1 onNextStep={onNextStep} onPrevStep={onPrevStep} setName={setName} setEmail={setEmail} 
-        setPhoneNumber={setPhoneNumber} name={name} email={email} phone={phone}/>
+        return <Step1 onNextStep={onNextStep} onPrevStep={onPrevStep} setName={setName} setEmail={setEmail}
+          setPhoneNumber={setPhoneNumber} name={name} email={email} phone={phone} />
     }
   }
   return (
     <div className="App">
       <NavBars />
-      {/* <SlideShow /> */}
-
-      <Routes onNextStep={onNextStep} onPrevStep={onPrevStep}/>
+      <SlideShow />
+      <div style={{height: 200, overflow: "auto"}} id="test">
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+        qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
+        <br/>
+      </div>
+      <Routes onNextStep={onNextStep} onPrevStep={onPrevStep} />
       {/* {Step()} */}
       {/* <Button onClick={handleClick} style={{ color: "green" }}>Hello</Button>
       <h3>{imageIsExist === true ? "Image" : "Khong co anh"}</h3>
