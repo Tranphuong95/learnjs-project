@@ -9,7 +9,7 @@
     overflow: auto;
     margin: 0 auto;
 }
-.slide-image{
+div[class^="slide-image"]{
     /* width: 100%; */
     width: 500px;
     height: 100%;

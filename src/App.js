@@ -40,15 +40,15 @@ function App() {
     }
   }
   delete student.class;
-  // useEffect(() => {
-  //   const coundown = setTimeout(() => {
-  //     setNumber((number) => --number)
-  //   }, [1000]);
-  //   if (number <= 0) clearTimeout(coundown)
-  //   return () => {
-  //     clearTimeout(coundown)
-  //   }
-  // }, [number])
+  useEffect(() => {
+    const coundown = setTimeout(() => {
+      setNumber((number) => --number)
+    }, [1000]);
+    if (number <= 0) clearTimeout(coundown)
+    return () => {
+      clearTimeout(coundown)
+    }
+  }, [number])
   const handleClick = () => {
     alert("hello")
   }
@@ -60,7 +60,6 @@ function App() {
   }
   const handleChangeInput = (e) => {
     const regex = /[0-9]{9,12}$/
-    console.log("regex:", regex.test(e.target.value), e.target.value.length)
     setPoint(e.target.value)
   }
   // 0-50: 800;
@@ -209,7 +208,7 @@ function App() {
 
   const obj = new Counter()
   obj.add([2, 5, 9]);
-  // 3
+  // chia vao cac trang  khi trang truoc day
   const widths = [{
     name: "tabl",
     width: 30
@@ -271,11 +270,9 @@ function App() {
     });
     return pages
   }
-  console.log("page1:", convertTabs(widths));
   //check dieu kien dung vong lap
   let tab3 = "Khong kq";
   const findTab3 = (x) => {
-    console.log(x)
     if (x === "tab3") {
       return x
     }
@@ -285,7 +282,6 @@ function App() {
     if (tab3 === "tab3") return
     tab3 = findTab3(x.name);
   })
-  console.log("tab3===>", tab3)
   // check khi tat ca phong ban dat 100 thi phong ban cha cung dat 100
   const pb = [{
     name: "pb1",
@@ -379,13 +375,11 @@ function App() {
   }
   pb.forEach(x => getPb100(x));
   const new100 = [...new Set(pb100)].sort()
-  console.log("pb100====>", pb100, "===>", new100)
   //update pb100;
   const updatepb100 = (lists100, listPb) => {
     const newArr100 = (Array.isArray(listPb) ? listPb : listPb.child).map((y, j) => {
       lists100.forEach((x, i) => {
         if (y.id === x && y.value !== 100) {
-          console.log("xxx", x)
           y.value = 100;
         }
         else updatepb100(lists100, y)
@@ -394,8 +388,7 @@ function App() {
     })
     return newArr100;
   }
-  console.log("updatepb100:", updatepb100(new100, pb));
-  //update phan tu cua mang
+  // update phan tu cua mang
   const paidKeys = ["paid1", "paid2", "paid3", "paid4"]; //so phan tu o 2 mang phai bang nhau
   const prevKeys = ["prev1", "prev2", "prev3", "prev4"];
   const fees = [
@@ -418,27 +411,26 @@ function App() {
     })
     return newItems
   })
-  console.log("newFees:", newFees)
 
-  const Step = () => {
-    switch (step) {
-      case 1:
-        return <Step1 onNextStep={onNextStep} onPrevStep={onPrevStep} setName={setName} setEmail={setEmail}
-          setPhoneNumber={setPhoneNumber} name={name} email={email} phone={phone} />
-      case 2:
-        return <Step2 onNextStep={onNextStep} onPrevStep={onPrevStep} />
-      case 3:
-        return <Step3 onNextStep={onNextStep} onPrevStep={onPrevStep} />
-      default:
-        return <Step1 onNextStep={onNextStep} onPrevStep={onPrevStep} setName={setName} setEmail={setEmail}
-          setPhoneNumber={setPhoneNumber} name={name} email={email} phone={phone} />
-    }
-  }
+  // const Step = () => {
+  //   switch (step) {
+  //     case 1:
+  //       return <Step1 onNextStep={onNextStep} onPrevStep={onPrevStep} setName={setName} setEmail={setEmail}
+  //         setPhoneNumber={setPhoneNumber} name={name} email={email} phone={phone} />
+  //     case 2:
+  //       return <Step2 onNextStep={onNextStep} onPrevStep={onPrevStep} />
+  //     case 3:
+  //       return <Step3 onNextStep={onNextStep} onPrevStep={onPrevStep} />
+  //     default:
+  //       return <Step1 onNextStep={onNextStep} onPrevStep={onPrevStep} setName={setName} setEmail={setEmail}
+  //         setPhoneNumber={setPhoneNumber} name={name} email={email} phone={phone} />
+  //   }
+  // }
   return (
     <div className="App">
       <NavBars />
       <SlideShow />
-      <div style={{height: 200, overflow: "auto"}} id="test">
+      {/* <div style={{height: 200, overflow: "auto"}} id="test">
         qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
         <br/>
         qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
@@ -509,16 +501,16 @@ function App() {
         <br/>
         qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
         <br/>
-      </div>
-      <Routes onNextStep={onNextStep} onPrevStep={onPrevStep} />
+      </div> */}
+      {/* <Routes onNextStep={onNextStep} onPrevStep={onPrevStep} /> */}
       {/* {Step()} */}
       {/* <Button onClick={handleClick} style={{ color: "green" }}>Hello</Button>
       <h3>{imageIsExist === true ? "Image" : "Khong co anh"}</h3>
       {number === 0 ? <h1>HET GIO</h1> : <h1>{number}</h1>}
       <input type="number" name="point" value={point} onChange={handleChangeInput} />
       <button onClick={()=>getMoney(point)}>Tinh tien</button>
-      <h3>Thanh tien: {getMoney(point)}</h3>
-      <ClassComponent /> */}
+      <h3>Thanh tien: {getMoney(point)}</h3> */}
+      <ClassComponent />
     </div>
   );
 }

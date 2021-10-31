@@ -9,7 +9,6 @@ const initialSate = {
 
 }
 const stepReducer = (state = initialSate, action) => {
-    console.log("action", action,  action.payload && {[action.payload.type]: action.payload[action.payload.type]})
     switch (action.type) {
         // case Types.MERGE_DATA:
         case action.payload && action.payload.type:
