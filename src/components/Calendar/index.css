@@ -7,10 +7,17 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 .cal-head{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 35px;
     line-height: 35px;
     background-color: rgb(76, 119, 238);
     color: white;
+}
+.arrow-icon{
+    display: block;
+    cursor: pointer;
 }
 .grid-item{
     width: 100%;
