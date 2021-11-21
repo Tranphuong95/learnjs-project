@@ -20,8 +20,9 @@
     color: white;
     border: 1px solid white;
     background-color: rgb(76, 119, 238);
-    cursor: pointer;
 }
-.grid-item:hover{
+.has-day:hover{
     background-color: green;
+    cursor: pointer;
+
 }
