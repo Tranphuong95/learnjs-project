@@ -7,21 +7,18 @@ class ClassComponent extends React.Component{
         }
     }
     componentDidMount=()=>{
-        console.log("didMount")
         this.dn=setTimeout(()=>{
             this.setState({number: this.state.number-1})
             },[1000])
             if(this.state.number===0) clearTimeout(this.dn)
     }
     componentWillReceiveProps=(nextProps)=>{
-        console.log("willRece")
         // const dn=setTimeout(()=>{
         //     this.setState({number:--this.state.number})
         // },[1000])
         // if(this.state.number===0) clearTimeout(dn)
     }
     componentWillUpdate=(props, state)=>{
-        console.log("willUpdate")
         // const dn=setTimeout(()=>{
         //         this.setState({number: state.number-1})
         //     },[1000])
@@ -29,7 +26,6 @@ class ClassComponent extends React.Component{
         
     }
     componentDidUpdate=(props, state)=>{
-        console.log("didUpdate")
        const dn=setTimeout(()=>{
         this.setState({number: state.number-1})
     },[1000])

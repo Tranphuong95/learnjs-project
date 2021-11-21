@@ -411,6 +411,7 @@ function App() {
     })
     return newItems
   })
+  console.log(newFees)
 
   // const Step = () => {
   //   switch (step) {
@@ -428,8 +429,8 @@ function App() {
   // }
   return (
     <div className="App">
-      <NavBars />
-      <SlideShow />
+      {/* <NavBars /> */}
+      {/* <SlideShow /> */}
       {/* <div style={{height: 200, overflow: "auto"}} id="test">
         qwwwwwwwwwqqqqqqqqqqqqqqqqqqqqwewweeeeeeeeeee
         <br/>
@@ -510,7 +511,8 @@ function App() {
       <input type="number" name="point" value={point} onChange={handleChangeInput} />
       <button onClick={()=>getMoney(point)}>Tinh tien</button>
       <h3>Thanh tien: {getMoney(point)}</h3> */}
-      <ClassComponent />
+      {/* <ClassComponent /> */}
+      <Routes/>
     </div>
   );
 }

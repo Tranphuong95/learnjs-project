@@ -3,18 +3,25 @@
     align-items: center;
     justify-content: center;
 
-    /* width: 300px; */
+    max-width: 350px;
     height: 300px;
-    width: 500px;
-    overflow: auto;
+    /* width: 500px; */
+    /* overflow: auto; */
+    overflow: hidden;
     margin: 0 auto;
 }
 div[class^="slide-image"]{
     /* width: 100%; */
-    width: 500px;
+    /* width: 500px; */
+    position: relative;
+    min-width: 300px;
     height: 100%;
     overflow: hidden;
 
     background-color: green;
     margin: 0 10px;
+}
+.active{
+    position: relative;
+    left: 50%;
 }

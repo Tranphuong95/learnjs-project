@@ -17,12 +17,15 @@ const SlideShow = () => {
            arr.push(x)
        }
    })
+   for(var i=0; i<5; i++){
+       console.log(i)
+   }
     return (
         <div>
             <h1>SlideShow</h1>
             <div className="slides">
                 {Array.isArray(arrImage) && arrImage.map((x,i)=>(
-                    <div className={`slide-image_${i}`}>{`image ${x}`}</div>
+                    <div className={`slide-image_${i} ${i===1?"active": ""}`} key={i}>{`image ${x}`}</div>
                 ))}
             </div>
             {/* <Grid>
